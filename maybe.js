@@ -7,10 +7,8 @@ const twice = require('./helpers').twice
 class Maybe {
   static unit(x) { return just(x) }
 
-  flatten(checkContract) {
-    const contract = checkContract !== void 0 ? checkContract : checkAny
-
-    return maybeFlatten(contract)(this)
+  flatten(checkContract = checkAny) {
+    return maybeFlatten(checkContract)(this)
   }
 
   map(checkContract) {

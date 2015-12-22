@@ -12,10 +12,8 @@ class ArrayM extends Monad {
     this.x = [...args]
   }
 
-  flatten(checkContract) {
-    const contract = checkContract !== void 0 ? checkContract : cts.checkAny
-
-    return arrayOfFlatten(contract)(this)
+  flatten(checkContract = cts.checkAny) {
+    return arrayOfFlatten(checkContract)(this)
   }
 
   map(checkContract) {
